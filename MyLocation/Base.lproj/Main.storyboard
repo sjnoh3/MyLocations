@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TVQ-2Y-srL">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tag-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CurrentLocationViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Longitude goes here)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqi-Jd-sJx">
+                                <rect key="frame" x="149" y="97" width="210" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLU-tM-bHO">
+                                <rect key="frame" x="16" y="97" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezg-lp-Jzc">
+                                <rect key="frame" x="16" y="60" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Latitude goes here)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocn-vd-xy1">
+                                <rect key="frame" x="149" y="60" width="210" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Message Label)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XT-6l-RGN">
+                                <rect key="frame" x="16" y="16" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWi-da-HLY">
+                                <rect key="frame" x="143" y="234.5" width="89" height="30"/>
+                                <state key="normal" title="Tag Location"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQL-IW-A7l">
+                                <rect key="frame" x="131" y="564" width="113" height="30"/>
+                                <state key="normal" title="Get My Location"/>
+                                <connections>
+                                    <action selector="getLocation" destination="BYZ-38-t0r" eventType="touchUpInside" id="VKV-Uc-rJy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Address goes here)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMq-EE-zns">
+                                <rect key="frame" x="16" y="166" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uqi-Jd-sJx" secondAttribute="trailing" constant="16" id="6hR-Ks-qjZ"/>
+                            <constraint firstItem="CLU-tM-bHO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="AIK-sI-yHt"/>
+                            <constraint firstItem="ocn-vd-xy1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="BdK-rC-yqQ"/>
+                            <constraint firstItem="ocn-vd-xy1" firstAttribute="leading" secondItem="ezg-lp-Jzc" secondAttribute="trailing" constant="34" id="CpM-dV-LK8"/>
+                            <constraint firstItem="8XT-6l-RGN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="GOK-19-JcO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8XT-6l-RGN" secondAttribute="trailing" constant="16" id="Ksr-fL-Sc0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kQL-IW-A7l" secondAttribute="bottom" constant="24" id="SPJ-r5-Vo6"/>
+                            <constraint firstItem="8XT-6l-RGN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="SR7-zO-Ocf"/>
+                            <constraint firstItem="Uqi-Jd-sJx" firstAttribute="leading" secondItem="CLU-tM-bHO" secondAttribute="trailing" constant="34" id="Xhg-Oz-Qem"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ocn-vd-xy1" secondAttribute="trailing" constant="16" id="Z4t-pv-wEJ"/>
+                            <constraint firstItem="FMq-EE-zns" firstAttribute="top" secondItem="CLU-tM-bHO" secondAttribute="bottom" constant="48" id="b7B-rs-i8g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FMq-EE-zns" secondAttribute="trailing" constant="16" id="bpt-xA-GRs"/>
+                            <constraint firstItem="ezg-lp-Jzc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="d6l-ag-JQw"/>
+                            <constraint firstItem="BWi-da-HLY" firstAttribute="top" secondItem="FMq-EE-zns" secondAttribute="bottom" constant="48" id="fsJ-aP-Dh3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ezg-lp-Jzc" secondAttribute="trailing" constant="260" id="iSU-A5-T1R"/>
+                            <constraint firstItem="BWi-da-HLY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="juq-ee-0pK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BWi-da-HLY" secondAttribute="trailing" constant="143" id="ksL-nB-B2N"/>
+                            <constraint firstItem="kQL-IW-A7l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="131" id="qBA-Gj-sXg"/>
+                            <constraint firstItem="FMq-EE-zns" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="uSL-n8-OFt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CLU-tM-bHO" secondAttribute="trailing" constant="260" id="wDt-tY-eOr"/>
+                            <constraint firstItem="Uqi-Jd-sJx" firstAttribute="top" secondItem="ocn-vd-xy1" secondAttribute="bottom" constant="16" id="wlA-c5-zTb"/>
+                            <constraint firstItem="CLU-tM-bHO" firstAttribute="top" secondItem="ezg-lp-Jzc" secondAttribute="bottom" constant="16" id="wnE-3M-P4u"/>
+                            <constraint firstItem="ezg-lp-Jzc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="wwg-TK-AWs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kQL-IW-A7l" secondAttribute="trailing" constant="131" id="xgU-uV-885"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tag" id="sZ0-ID-2Hz"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="FMq-EE-zns" id="Qsv-H1-a3c"/>
+                        <outlet property="getButton" destination="kQL-IW-A7l" id="34d-LZ-aAM"/>
+                        <outlet property="latitudeLabel" destination="ocn-vd-xy1" id="mmC-3J-ld1"/>
+                        <outlet property="longitudeLabel" destination="Uqi-Jd-sJx" id="yGh-mL-BBt"/>
+                        <outlet property="messageLabel" destination="8XT-6l-RGN" id="wAy-8i-B3q"/>
+                        <outlet property="tagButton" destination="BWi-da-HLY" id="aZq-kv-ZyQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="78.348214285714278"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="w0m-SV-w1V">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TVQ-2Y-srL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G1z-cJ-MmB">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="NQk-32-aNx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IsQ-Wo-i4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="78.348214285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
