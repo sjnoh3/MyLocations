@@ -18,6 +18,7 @@ class CurrentLocationViewController: UIViewController {
   @IBOutlet var tagButton: UIButton!
   @IBOutlet var getButton: UIButton!
 
+  @IBOutlet var imageView: UIImageView!
   
   let locationManager = CLLocationManager()
   var location: CLLocation?
@@ -36,12 +37,12 @@ class CurrentLocationViewController: UIViewController {
       locationManager.requestWhenInUseAuthorization()
       return
     }
-    
+
     if authStatus == .denied || authStatus == .restricted {
       showLocationServicesDeniedAlert()
       return
     }
-    
+
     if updatingLocation {
       stopLocationManager()
     } else {
@@ -50,7 +51,48 @@ class CurrentLocationViewController: UIViewController {
       startLocationManager()
     }
     updateLabels()
+    
+//    print("1")
+//    var i: Int = 0
+//    DispatchQueue.global().async {
+//      for n in 0...10000000 {
+//        i = i + n
+//      }
+//      print("2")
+//      DispatchQueue.main.async {
+//        self.messageLabel.text = "\(i)"
+//        print("3")
+//      }
+//      print("4")
+//    }
+//    print("5")
+    
+//    DispatchQueue.global().async {
+//      let url = URL(string: "https://techcrunch.com/wp-content/uploads/2021/10/GettyImages-1342835899.jpg?w=1390&crop=1")!
+//      if let data = try? Data(contentsOf: url) {
+//        DispatchQueue.main.async { [weak self] in
+//          self?.imageView.image = UIImage(data: data)
+//        }
+//      }
+//    }
+//    DispatchQueue.global().async {
+//      let url = URL(string: "https://techcrunch.com/wp-content/uploads/2021/10/GettyImages-1342835890.jpg?w=1390&crop=1")!
+//      if let data = try? Data(contentsOf: url) {
+//        DispatchQueue.main.async { [weak self] in
+//          self?.imageView.image = UIImage(data: data)
+//        }
+//      }
+//    }
+//    DispatchQueue.global().async {
+//      let url = URL(string: "https://techcrunch.com/wp-content/uploads/2021/10/GettyImages-1342835891.jpg?w=1390&crop=1")!
+//      if let data = try? Data(contentsOf: url) {
+//        DispatchQueue.main.async { [weak self] in
+//          self?.imageView.image = UIImage(data: data)
+//        }
+//      }
+//    }
   }
+  
   
   func updateLabels() {
     if let location = location {
@@ -186,7 +228,6 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     let newLocation = locations.last!
     print("didUpdateLocations \(newLocation)")
-    
     // 1
     if newLocation.timestamp.timeIntervalSinceNow < -5  {
       return
