@@ -232,10 +232,14 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
     if newLocation.timestamp.timeIntervalSinceNow < -5  {
       return
     }
-    
     // 2
     if newLocation.horizontalAccuracy < 0 {
       return
+    }
+    // New section #1
+    var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
+    if let location = location {
+      distance = newLocation.distance(from: location)
     }
     
     // 3
@@ -249,27 +253,41 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
       if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
         print("*** We're done!")
         stopLocationManager()
-      }
-    }
-    updateLabels()
-    
-    if !performingReverseGeocoding {
-      print("*** Going to geocode")
-
-      performingReverseGeocoding = true
-
-      // This kind of escaping closures for functions that perform asynchronous work and invoke the closure as a callback.
-      geocoder.reverseGeocodeLocation(newLocation) {placemarks, error in
-        self.lastGeocodingError = error
-        if error == nil, let places = placemarks, !places.isEmpty {
-          self.placemark = places.last!
-        } else {
-          self.placemark = nil
+        // New section #2
+        if distance > 0 {
+          performingReverseGeocoding = false
         }
-        
-        self.performingReverseGeocoding = false
-        self.updateLabels()
+        // End of new section #2
       }
+      updateLabels()
+      if !performingReverseGeocoding {
+        print("*** Going to geocode")
+
+        performingReverseGeocoding = true
+
+        // This kind of escaping closures for functions that perform asynchronous work and invoke the closure as a callback.
+        geocoder.reverseGeocodeLocation(newLocation) {placemarks, error in
+          self.lastGeocodingError = error
+          if error == nil, let places = placemarks, !places.isEmpty {
+            self.placemark = places.last!
+          } else {
+            self.placemark = nil
+          }
+          
+          self.performingReverseGeocoding = false
+          self.updateLabels()
+        }
+      }
+    // New section #3
+    } else if distance < 1 {
+      let timeInterval = newLocation.timestamp.timeIntervalSince(location!.timestamp)
+      if timeInterval > 10 {
+        print("*** Force done!")
+        stopLocationManager()
+        updateLabels()
+      }
+      // End of new sectiton #3
     }
   }
+  
 }
